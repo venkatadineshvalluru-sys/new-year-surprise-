@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>For My Cutiepie 💌</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a0826;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+    }
+
+    .card-container {
+      width: min(95vw, 480px);
+      height: min(90vh, 700px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.9s ease;
+      position: relative;
+    }
+    .card.flipped { transform: rotateY(180deg); }
+
+    .front, .back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 6px 40px rgba(255,255,255,0.25);
+    }
+
+    /* ---- FRONT ---- */
+    .front {
+      background: linear-gradient(135deg, #ff77e9, #ffb2f1);
+      color: white;
+      justify-content: center;
+      font-size: clamp(1.2rem, 1.7vw, 2rem);
+      text-align: center;
+      padding: 25px;
+    }
+
+    .front img {
+      width: clamp(100px, 25vw, 180px);
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
+    }
+
+    /* ---- BACK ---- */
+    .back {
+      background: white;
+      color: #222;
+      transform: rotateY(180deg);
+      font-size: clamp(1rem, 1.2vw, 1.3rem);
+      line-height: 1.7;
+      padding: 60px 30px 40px;
+      overflow-y: auto;
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    .back::-webkit-scrollbar { width: 8px; }
+    .back::-webkit-scrollbar-thumb {
+      background: #ff77e9;
+      border-radius: 10px;
+    }
+
+    /* ---- Continue Button ---- */
+    .next-btn {
+      padding: 10px 20px;
+      background: #ff77e9;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      margin: 25px auto 0;
+      cursor: pointer;
+      display: block;
+      transition: 0.3s;
+    }
+    .next-btn:hover {
+      background: #ff9df2;
+      transform: scale(1.08);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="card-container" onclick="flip()">
+    <div class="card" id="card">
+
+      <!-- 🧸 FRONT SIDE -->
+      <div class="front">
+        <img src="images/teddy.png" alt="cute teddy">
+        HAPPY NEW YEAR 2026 🎉<br><br>
+        Tap to open 💌
+      </div>
+
+      <!-- 💌 BACK SIDE (LETTER) -->
+      <div class="back">
+
+        <strong>My dearest Cutiepie, 💖</strong><br><br>
+
+        Another year is here — and my first wish of this year is for
+        <strong>you to smile more</strong> than you ever have before. ✨<br><br>
+
+        I hope 2026 is filled with: 💫<br>
+        • Dream chasing that leads to big wins 🚀<br>
+        • Quiet confidence in everything you do 💎<br>
+        • Unexpected joys in the little things 🦋<br>
+        • Strong boundaries and peaceful nights 🌙<br>
+        • A heart that feels completely light 🎈<br><br>
+
+        Thank you for being someone who makes the world a little brighter
+        just by existing. 💗<br><br>
+
+        I’m here — in every chapter, in every silly moment,
+        in every peaceful silence. To choose you, every time. 💞<br><br>
+
+        Happy New Year, my love. 🥂💘<br><br>
+        <em>With all my heart, always.</em> 💋💌<br><br>
+
+        <!-- CONTINUE BUTTON -->
+        <button class="next-btn" onclick="event.stopPropagation(); window.location.href='ending.html';">
+          Continue 💖
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function flip() {
+      document.getElementById("card").classList.toggle("flipped");
+    }
+  </script>
+
+</body>
+</html>

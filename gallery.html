@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Gallery</title>
+  <style>
+    body {
+      background: #1a0826;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      font-family: "Poppins", sans-serif;
+      flex-direction: column;
+      overflow: hidden;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .polaroid {
+      background: white;
+      padding: 15px;
+      width: 260px;
+      height: 310px;
+      border-radius: 10px;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+      transition: 0.4s ease;
+      transform: rotate(-3deg);
+      margin-bottom: 30px;
+    }
+
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 85%;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 3px solid #fff;
+    }
+
+    .caption {
+      margin-top: 8px;
+      color: #4b3e3e;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .next-btn {
+      padding: 12px 25px;
+      background: #ff77e9;
+      border-radius: 25px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      display: none;
+      transition: 0.3s;
+    }
+
+    .next-btn:hover {
+      background: #ff55cc;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Some moments from this year 💕</h2>
+
+  <div class="polaroid" onclick="nextPhoto()">
+    <img id="photo" src="images/pic-1.jpeg" alt="memory">
+    <div class="caption" id="caption">"Holding hands 🌙"</div>
+  </div>
+
+  <button class="next-btn" onclick="goNext()">Continue 💌</button>
+
+  <script>
+    // ⭐ Local images version — replace images/ files as needed
+    const photos = [
+      {src:"images/pic-1.jpeg", text:"Holding hands 🌙"},
+      {src:"images/pic2.jpeg", text:"Looking at the stars ✨"},
+      {src:"images/pic3.jpeg", text:"Walking together 🍃"},
+      {src:"images/pic4.jpeg", text:"Our quiet moments 💞"}
+    ];
+
+    let index = 0;
+
+    function nextPhoto() {
+      index++;
+      if(index < photos.length) {
+        document.getElementById("photo").src = photos[index].src;
+        document.getElementById("caption").innerText = photos[index].text;
+      } else {
+        document.querySelector(".next-btn").style.display = "block";
+      }
+    }
+
+    function goNext() {
+      window.location.href = "letter.html"; // 👉 next page
+    }
+  </script>
+
+</body>
+</html>

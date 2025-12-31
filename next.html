@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move the Distractions 💕</title>
+
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    background:#1a0826;
+    font-family:"Poppins",sans-serif;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+  }
+
+  h1{
+    font-size:clamp(1.6rem,3vw,2.4rem);
+    margin-bottom:10px;
+    margin-top:-80px; /* adjust text upward */
+  }
+
+  .subtitle{
+    background:#3b0a4d;
+    padding:10px 16px;
+    border-radius:14px;
+    font-size:1.1rem;
+    color:#ffbfff;
+    box-shadow:0 0 18px #ff77e988;
+    margin-bottom:30px;
+    font-weight:500;
+  }
+
+  /* ⭐ CARDS ⭐ */
+  .cards{
+    width:230px;
+    height:260px;
+    position:relative;
+    margin:0 auto;
+  }
+
+  .card{
+    position:absolute;
+    width:230px;
+    height:260px;
+    border-radius:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.2rem;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+  }
+
+  .card:nth-child(1){background:#ff77e9;}
+  .card:nth-child(2){background:#ff914d;top:20px;}
+  .card:nth-child(3){background:#ff5757;top:40px;}
+  .card:nth-child(4){background:#7c45db;top:60px;}
+
+  .card:active{transform:scale(1.08);}
+
+  /* 🎁 GIFT EMOJI (hidden initially) */
+  #gift-box {
+    font-size:120px;
+    cursor:pointer;
+    animation:bounce 1.5s infinite;
+    margin-top:30px;
+    filter:drop-shadow(0 0 20px rgba(255,255,255,0.4));
+    display:none;
+  }
+
+  @keyframes bounce {
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+  }
+
+  .open-gift{
+    font-size:clamp(1.2rem,2vw,1.6rem);
+    cursor:pointer;
+    display:none;
+  }
+
+</style>
+</head>
+
+
+<body>
+
+<h1>Something is waiting for you...</h1>
+<div class="subtitle">💖 Move the little distractions aside 💖</div>
+
+<!-- ⭐ CARDS ⭐ -->
+<div class="cards" id="cards-container">
+  <div class="card" onclick="removeCard(this)">Overthinking 🤯</div>
+  <div class="card" onclick="removeCard(this)">Stress 💥</div>
+  <div class="card" onclick="removeCard(this)">Bad Days 🌧️</div>
+  <div class="card" onclick="removeCard(this)">Self-Doubt 💔</div>
+</div>
+
+<!-- 🎁 GIFT SHOWS AFTER CARDS REMOVED -->
+<div id="gift-box" onclick="openGift()">🎁</div>
+<p class="open-gift" onclick="openGift()">Tap to open gift</p>
+
+
+<script>
+let removedCards = 0;
+
+function removeCard(card){
+  card.style.opacity="0";
+  card.style.transform="translateX(350px) rotate(12deg)";
+  setTimeout(()=>{
+    card.remove();
+    removedCards++;
+
+    if(removedCards === 4){
+      document.getElementById("gift-box").style.display = "block";
+      document.querySelector(".open-gift").style.display = "block";
+    }
+  }, 300);
+}
+
+function openGift(){
+  window.location.href = "ticket.html"; // NEXT PAGE
+}
+</script>
+
+
+</body>
+</html>

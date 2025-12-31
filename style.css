@@ -1,0 +1,36 @@
+body {
+  background: #1a0826;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+.hold-container {
+  text-align: center;
+}
+
+.progress-ring {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: conic-gradient(#ff77e9 0deg, rgba(255,255,255,0.15) 0deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.heart {
+  font-size: 60px;
+}
+
+.hold-text {
+  margin-top: 15px;
+  opacity: 0.8;
+}

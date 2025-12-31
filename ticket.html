@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Ticket</title>
+  <style>
+    body {
+      background: #1a0826;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: "Poppins", sans-serif;
+      color: white;
+      margin: 0;
+      text-align: center;
+    }
+
+    .ticket {
+      background: linear-gradient(135deg, #FFD700, #FFEE88);
+      width: 320px;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 217, 0, 0.7);
+      animation: pop 0.8s ease forwards;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.6); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .ticket h1 {
+      color: #5e4308;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .ticket p {
+      color: #5e4308;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 5px;
+    }
+
+    .claim-btn {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #ff77e9;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .claim-btn:hover {
+      background: #ff55cc;
+      transform: scale(1.05);
+    }
+
+    .confetti {
+      font-size: 2.5rem;
+      animation: confetti 2s infinite;
+      margin-bottom: -20px;
+    }
+
+    @keyframes confetti {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="confetti">🎉</div>
+
+  <div class="ticket">
+    <h1>🎫 GOLDEN TICKET 🎫</h1>
+    <p>Valid for every day ahead</p>
+    <p><strong>Unlimited Love & Smiles 💕</strong></p>
+    <p>No expiration date ✨</p>
+  </div>
+
+  <button class="claim-btn" onclick="nextPage()">CLAIM TICKET</button>
+
+  <script>
+    function nextPage() {
+      window.location.href = "gallery.html";
+    }
+  </script>
+
+</body>
+</html>
